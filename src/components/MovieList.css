@@ -1,10 +1,13 @@
-.container {
-  background: #0b0b0b;
+.main {
+  background: #e8e8e8;
   width: 100vw;
   height: 100vh;
-  color: #FFF;
+  color: #0b0b0b;
+  box-sizing: content-box;
+}
 
-  section {
-    border: 1px solid #FFF;
-  }
+.character-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5rem;
 }

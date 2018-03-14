@@ -1,4 +1,4 @@
-# NotRottenTomatoes
+# Rick & Morty
 
 Simple implementation of Client Side Authentication with Auth0 and a Higher Order Component
 

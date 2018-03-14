@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Root from './routes';
 import configureStore from './store';
 
-const store = configureStore();
+const store = configureStore({});
 
 ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 registerServiceWorker();
