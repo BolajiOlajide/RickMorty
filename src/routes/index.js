@@ -1,8 +1,10 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider, connect} from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import MovieList from '../components/MovieList';
+import Protected from '../components/Protected';
+import CharacterList from '../components/CharacterList';
+import Home from '../components/Home';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -10,15 +12,20 @@ const Main = () => (
   <h1>Bolaji</h1>
 );
 
-const Root = ({ store }) => (
+const Root = ({ store, auth }) => (
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/characters" component={MovieList} />
-        <Route path="/" component={Main} />
+        <Protected authed={{auth: auth}} path='/characters' component={CharacterList} />
+        <Protected authed={{auth: auth}} path='/main' component={Main} />
+        <Route path="/" component={Home} />
       </Switch>
     </Router>
   </Provider>
 );
 
-export default Root;
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, null)(Root);

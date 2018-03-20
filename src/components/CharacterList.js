@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './MovieList.css';
+import './CharacterList.css';
 
 import getCharacters from '../actions/character.action';
 
@@ -17,17 +17,16 @@ class MovieList extends Component {
 
   render() {
     const { characters } = this.props;
-    console.log(characters);
 
     return (
       <div className="main">
-        <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand">Rick & Morty</a>
+        <nav className="navbar navbar-light bg-light">
+          <a className="navbar-brand">Rick & Morty</a>
         </nav>
         <section className="character-container">
         {
           characters.map(character => (
-            <div className="card" style={{width: "18rem"}}>
+            <div className="card" style={{width: "18rem"}} key={character.id}>
               <img className="card-img-top" src={character.image} alt={character.name} />
               <div className="card-body">
                 <p className="card-text">Name: {character.name}</p>
